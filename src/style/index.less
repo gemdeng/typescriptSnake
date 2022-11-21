@@ -1,0 +1,85 @@
+// 设置变量
+@bg-color: #add5a2;
+
+// 清除默认样式
+* {
+    margin: 0;
+    padding: 0;
+    //改变盒子模型的计算方式为怪异盒子模型
+    box-sizing: border-box;
+}
+
+body {
+    font: bold 20px "Courier";
+}
+
+//设置主窗口样式
+#main {
+    width: 360px;
+    height: 420px;
+    background-color: @bg-color;
+    margin: 100px auto;
+    margin-bottom: 0;
+    border: 10px solid black;
+    border-radius: 20px;
+    //弹性盒子居中
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: space-around;
+
+    //游戏舞台
+    #stage {
+        width: 304px;
+        height: 304px;
+        border: 2px solid black;
+        position: relative;
+
+        //蛇
+        #snake {
+
+            &>div {
+                width: 10px;
+                height: 10px;
+                background-color: #000;
+                border: 1px solid @bg-color;
+                position: absolute;
+            }
+
+
+        }
+
+        &>#food {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            left: 40px;
+            top: 100px;
+            display: flex;
+            //设置横轴为主轴，wra换行
+            flex-flow: row wrap;
+            //设置主轴和侧轴的空白空间分配到元素之间
+            justify-content: space-between;
+            align-content: space-between;
+
+            &>div {
+                width: 4px;
+                height: 4px;
+                background-color: gray;
+                transform: rotate(45deg);
+            }
+        }
+    }
+
+    //记分牌
+    #score-panel {
+        width: 300px;
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+#prompt {
+    width: 540px;
+    margin: 30px auto;
+}
